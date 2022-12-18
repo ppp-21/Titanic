@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+        <title>Titanic survival prediction</title>
+
+        
+
+
+        <style>
+
+            body {
+                
+                text-align: center;
+                background-image: "https://images.unsplash.com/photo-1568605114967-8130f3a36994?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxleHBsb3JlLWZlZWR8M3x8fGVufDB8fHx8&w=1000&q=80";
+                
+            }
+
+            .navbar {
+                background-color: #1c1111;
+            }
+
+            a {
+                color: #e6e98f;
+                text-align: center;
+            }
+
+            a:hover {
+                color: #ff0808;
+              }
+
+            .icon-bar {
+              position: fixed;
+              top: 50%;
+              -webkit-transform: translateY(-50%);
+              -ms-transform: translateY(-50%);
+              transform: translateY(-50%);
+            }
+
+            .icon-bar a{
+              display: block;
+              text-align: center;
+              padding: 16px;
+              transition: all 0.3s ease;
+              color: rgba(255, 255, 255, 0.189);
+              font-size: 20px;
+            }
+
+            .icon-bar a:hover {
+              background-color: #000;
+            }
+
+            .github {
+              background: #000000;
+              color: white;
+            }
+
+            .linkedin {
+              background: #007bb5;
+              color: white;
+            }
+            
+    	</style>
+
+    </head>
+
+    <body >
+        
+        <!-- As a heading -->
+        <nav class="navbar navbar-inverse">
+            <div class="container-fluid">
+            <div class="navbar-header"></div>
+          </div>
+        </nav>
+        <br>
+        <left>
+
+            <h1 style="color:rgba(20, 119, 119, 0.867);font-size:50px;">Titanic survival prediction</h1>
+            <div class="container">
+                
+                <form action="\get_prediction" method="POST" action="{{ url_for('predict_death') }}">
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div class="card">
+                                <div class="card-body">
+                                    
+                                    <div>
+                                        <label for="Pclass" style="color:rgb(4, 4, 4);">Pclass</label><br><br>
+                                            <input type="text" placeholder="Enter Pclass eg: 0,1,2" name="Pclass" required>
+                                            <br>
+                                        
+                                </div>
+                            </div>
+                        </div>
+                        <br>
+
+                    </div>
+                    <br>
+                    <div class="row">
+
+                        <div class="col-sm-6">
+                            <div class="card">
+                                <div class="card-body">
+                                    <label for="Gender" style="color:rgb(9, 9, 9);">Gender</label><br>
+                                    <select placeholder="Enter Gender" name="Gender" style="width: 180px;" required>
+                                        <option></option>
+                                            <option value = "male">male</option>
+                                            <option value = "female">female</option>
+                                        </select>
+                                    
+                                    
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <br>
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div class="card">
+                                <div class="card-body">
+                                    
+                                    <label for="Age" style="color:rgb(11, 10, 10);">Age</label><br><br>
+                                    <input type="text" placeholder="Enter age" name="Age" required>
+                                    
+                                    
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="card">
+                                <div class="card-body">
+                                    <label for="SibSp" style="color:rgb(7, 7, 7);">SibSp</label><br><br>
+                                    
+                                    <input type="text" name="SibSp" id="SibSp" required="required" placeholder="Enter Sibsp. eg:0 to 5"><br><br>
+                                   
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-sm-6">
+                            <div class="card">
+                                <div class="card-body">
+                                    <label for="Parch" style="color:rgb(17, 16, 16);">Parch</label><br><br>
+                                    
+                                    <input type="text" name="Parch" id="Parch" required="required" placeholder="Enter Parch. eg:0 to 5"><br><br>
+                                    
+                                </div>
+                            </div>
+                        </div>
+
+                        
+                        <div class="col-sm-6">
+                            <div class="card">
+                                <div class="card-body">
+                                    <label for="Fare" style="color:rgb(11, 11, 11);">Fare</label><br><br>
+                                    
+                                    <input type="text" name="Fare" id="Fare" required="required" placeholder="Enter Fare"><br><br>
+                                    
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-sm-6">
+                            <div class="card">
+                                <div class="card-body">
+                                    
+                                     <label for="gender" style="color:rgb(9, 9, 9);">Embarked</label><br><br>
+                                        <select placeholder="Enter Embarked" name="Embarked" style="width: 180px;" required>
+                                        <option></option>
+                                            <option value = "S">S</option>
+                                            <option value = "C">C</option>
+                                            <option value = "Q">Q</option>
+                                        </select>
+                                    
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <br>
+                    <!-- Submit -->
+                    <button type="submit" value="Submit" class="btn btn-secondary">Prediction of death:  </button>
+
+                    <br><br>
+                </div>
+            </form>
+            <h3>1 for survived 0 for not survived<h3>
+            <h2>{{ prediction_text }}</h2><br><br>
+        </left>
+        
+    </body>
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Titanic Passengers Prediction</title>
+</head>
+
+<body style="background-color: rgb(205, 209, 228);">
+    <h1> Titanic Prediction </h1>
+    <form method="get" action="/titanic">
+        <!-- Headings for the form -->
+        <div class="headingsContainer">
+            <h3 style="color:rgb(197, 70, 165);">Know Your Relative is Dead Or Alive</h3>
+        </div>
+        
+        <!-- Main container for all inputs -->
+        <div class="mainContainer">
+            <label for="age" style="color:Tomato;">Pclass</label><br>
+            <input type="text" placeholder="Enter Pclass" name="Pclass" required>
+            <br><br>
+            <label for="sex" style="color:Tomato;">Gender</label><br>
+            <select placeholder="Enter Gender" name="Gender" style="width: 180px;" required>
+              <option></option>
+              <option value = "male">male</option>
+              <option value = "female">female</option>
+            </select>
+            <br><br>
+            <label for="bmi" style="color:Tomato;">Age</label><br>
+            <input type="text" placeholder="Enter Age" name="Age" required>
+            <br><br>
+            <label for="children" style="color:Tomato;">SibSp</label><br>
+            <input type="text" placeholder="Enter SibSp" name="SibSp" required>
+            <br><br>
+            <label for="children" style="color:Tomato;">Parch</label><br>
+            <input type="text" placeholder="Enter Parch" name="Parch" required>
+            <br><br>
+            <label for="children" style="color:Tomato;">Fare</label><br>
+            <input type="text" placeholder="Enter Fare" name="Fare" required>
+            <br><br>
+            <label for="gender" style="color:Tomato;">Embarked</label><br>
+            <select placeholder="Enter Embarked" name="Embarked" style="width: 180px;" required>
+                <option></option>
+                <option value = "S">S</option>
+                <option value = "C">C</option>
+                <option value = "Q">Q</option>
+            </select>
+
+            <br><br>
+            <!-- Submit button -->
+            <input type="submit" value="Submit">
+            <br><br>
+            <h3 style="color:orange;">The Prediction is: <b> {{ prediction }}</b> </h3>
+        </div>
+    </form>
+
+
+</body>
+</html>
